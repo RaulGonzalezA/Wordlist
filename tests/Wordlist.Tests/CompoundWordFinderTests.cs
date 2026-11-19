@@ -34,4 +34,12 @@ public sealed class CompoundWordFinderTests
 
         matches.Should().BeEmpty();
     }
+
+    [Fact]
+    public void Omits_a_combination_when_the_resulting_word_is_missing()
+    {
+        var matches = CompoundWordFinder.Find(["al", "bums"]);
+
+        matches.Should().BeEmpty();
+    }
 }
