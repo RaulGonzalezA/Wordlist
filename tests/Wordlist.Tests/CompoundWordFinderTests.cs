@@ -26,4 +26,12 @@ public sealed class CompoundWordFinderTests
 
         matches.Should().BeEmpty();
     }
+
+    [Fact]
+    public void Omits_a_candidate_when_one_of_its_parts_is_missing()
+    {
+        var matches = CompoundWordFinder.Find(["al", "albums"]);
+
+        matches.Should().BeEmpty();
+    }
 }

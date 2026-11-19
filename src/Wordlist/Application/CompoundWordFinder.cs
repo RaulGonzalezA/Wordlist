@@ -11,22 +11,27 @@ public sealed class CompoundWordFinder
 
         foreach (var word in words)
         {
-            if (dictionary.Add(word) && word.Length == TargetLength && word.All(char.IsLetter))
+            if (!dictionary.Add(word))
+            {
+                continue;
+            }
+
+            if (word.Length == TargetLength && word.All(char.IsLetter))
             {
                 candidates.Add(word);
             }
         }
 
-        foreach (var word in candidates)
+        foreach (var candidate in candidates)
         {
-            for (var split = 1; split < word.Length; split++)
+            for (var splitIndex = 1; splitIndex < candidate.Length; splitIndex++)
             {
-                var left = word[..split];
-                var right = word[split..];
+                var left = candidate[..splitIndex];
+                var right = candidate[splitIndex..];
 
                 if (dictionary.Contains(left) && dictionary.Contains(right))
                 {
-                    yield return new CompoundWord(left, right, word);
+                    yield return new CompoundWord(left, right, candidate);
                     break;
                 }
             }
