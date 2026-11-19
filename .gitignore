@@ -1,0 +1,19 @@
+# Visual Studio and local IDE state
+.vs/
+*.user
+*.suo
+
+# Build, test and package outputs
+[Bb]in/
+[Oo]bj/
+[Tt]est[Rr]esults/
+/artifacts/
+/.nuget/
+*.nupkg
+*.snupkg
+
+# Local preparation for the technical test
+/.codex/
+/AGENTS.md
+/docs/
+/specs/
