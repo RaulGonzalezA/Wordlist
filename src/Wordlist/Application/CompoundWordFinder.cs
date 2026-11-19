@@ -11,7 +11,7 @@ public sealed class CompoundWordFinder
 
         foreach (var word in words)
         {
-            if (dictionary.Add(word) && word.Length == TargetLength)
+            if (dictionary.Add(word) && word.Length == TargetLength && word.All(char.IsLetter))
             {
                 candidates.Add(word);
             }

@@ -18,4 +18,12 @@ public sealed class CompoundWordFinderTests
         match.Right.Should().Be("bums");
         match.Word.Should().Be("albums");
     }
+
+    [Fact]
+    public void Omits_a_six_character_candidate_that_contains_a_hyphen()
+    {
+        var matches = CompoundWordFinder.Find(["ab", "-cde", "ab-cde"]);
+
+        matches.Should().BeEmpty();
+    }
 }
