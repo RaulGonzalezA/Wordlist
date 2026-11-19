@@ -11,7 +11,7 @@ public sealed class CompoundWordFinderTests
     {
         var finder = new CompoundWordFinder();
 
-        var matches = finder.Find(["al", "bums", "albums"]);
+        var matches = CompoundWordFinder.Find(["al", "bums", "albums"]);
 
         var match = matches.Should().ContainSingle().Which;
         match.Left.Should().Be("al");
